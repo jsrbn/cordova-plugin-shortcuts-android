@@ -1,6 +1,8 @@
 var Shortcuts = function () {
 };
 
+let cordova = window.cordova;
+
 Shortcuts.prototype.supportsDynamic = function (successCallback, errorCallback) {
   cordova.exec(
     successCallback,
