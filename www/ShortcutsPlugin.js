@@ -1,66 +1,96 @@
-var Shortcuts = function () {
+let Shortcuts = function () {
 };
 
 let cordova = window.cordova;
 
 Shortcuts.prototype.supportsDynamic = function (successCallback, errorCallback) {
-  cordova.exec(
-    successCallback,
-    errorCallback,
-    'ShortcutsPlugin',
-    'supportsDynamic',
-    []
-  );
+  if(cordova) {
+    cordova.exec(
+      successCallback,
+      errorCallback,
+      'ShortcutsPlugin',
+      'supportsDynamic',
+      []
+    );
+  } else {
+    console.warn("This platform does not support Android Shortcuts");
+  }
+
 };
 
 Shortcuts.prototype.supportsPinned = function (successCallback, errorCallback) {
-  cordova.exec(
-    successCallback,
-    errorCallback,
-    'ShortcutsPlugin',
-    'supportsPinned',
-    []
-  );
+  if(cordova) {
+    cordova.exec(
+      successCallback,
+      errorCallback,
+      'ShortcutsPlugin',
+      'supportsPinned',
+      []
+    );
+  } else {
+    console.warn("This platform does not support Android Shortcuts");
+  }
+
 };
 
 Shortcuts.prototype.setDynamic = function (shortcuts, successCallback, errorCallback) {
-  cordova.exec(
-    successCallback,
-    errorCallback,
-    'ShortcutsPlugin',
-    'setDynamic',
-    shortcuts
-  );
+  if(cordova) {
+    cordova.exec(
+      successCallback,
+      errorCallback,
+      'ShortcutsPlugin',
+      'setDynamic',
+      shortcuts
+    );
+  } else {
+    console.warn("This platform does not support Android Shortcuts");
+  }
+
 };
 
 Shortcuts.prototype.addPinned = function (shortcut, successCallback, errorCallback) {
-  cordova.exec(
-    successCallback,
-    errorCallback,
-    'ShortcutsPlugin',
-    'addPinned',
-    [shortcut]
-  );
+  if(cordova) {
+    cordova.exec(
+      successCallback,
+      errorCallback,
+      'ShortcutsPlugin',
+      'addPinned',
+      [shortcut]
+    );
+  } else {
+    console.warn("This platform does not support Android Shortcuts");
+  }
+
 };
 
 Shortcuts.prototype.getIntent = function (successCallback, errorCallback) {
-  cordova.exec(
-    successCallback,
-    errorCallback,
-    'ShortcutsPlugin',
-    'getIntent',
-    []
-  )
+  if(cordova) {
+    cordova.exec(
+      successCallback,
+      errorCallback,
+      'ShortcutsPlugin',
+      'getIntent',
+      []
+    )
+  } else {
+    console.warn("This platform does not support Android Shortcuts");
+  }
+
 }
 
 Shortcuts.prototype.onNewIntent = function (callback, errorCallback) {
-  cordova.exec(
-    callback,
-    errorCallback,
-    'ShortcutsPlugin',
-    'onNewIntent',
-    [typeof (callback) !== 'function']
-  )
+  if(cordova) {
+    cordova.exec(
+      callback,
+      errorCallback,
+      'ShortcutsPlugin',
+      'onNewIntent',
+      [typeof (callback) !== 'function']
+    )
+  } else {
+    console.warn("This platform does not support Android Shortcuts");
+  }
+
 }
 
 if (!window.plugins) {
